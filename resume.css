@@ -12,10 +12,23 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}
+
 a {
   color: #075985;
   text-decoration: underline;
   text-underline-offset: 2px;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* Print Action Toolbar */
@@ -38,6 +51,12 @@ a {
   font-weight: 700;
   text-decoration: none;
   cursor: pointer;
+  font-family: inherit;
+}
+
+.toolbar button:hover,
+.toolbar a:hover {
+  opacity: 0.9;
 }
 
 /* Resume Document Container (A4 Layout) */
@@ -107,6 +126,7 @@ li {
 .project-title span {
   font-size: 9.5px;
   color: #4b5563;
+  text-align: right;
 }
 
 .project ul {
@@ -127,8 +147,13 @@ li {
   font-size: 10.5px;
 }
 
+.education-item strong {
+  flex: 1;
+}
+
 .education-item span {
   color: #374151;
+  text-align: right;
 }
 
 /* Bottom Grid Layout */
@@ -142,21 +167,49 @@ li {
   margin-bottom: 4px;
 }
 
+/* Prevent Important Sections From Breaking */
+.project,
+.education-item,
+.bottom-section > div {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
 /* Mobile Responsiveness */
 @media (max-width: 800px) {
+  .toolbar {
+    padding: 12px;
+    flex-wrap: wrap;
+  }
+
   .resume {
-    width: 94%;
+    width: calc(100% - 24px);
+    min-height: auto;
     padding: 28px;
-    margin: 15px auto;
+    margin: 12px auto;
+  }
+
+  .header h1 {
+    font-size: 23px;
+  }
+
+  .contact {
+    font-size: 10px;
+    line-height: 1.8;
   }
 
   .education-item {
     display: block;
   }
 
+  .education-item strong,
   .education-item span {
     display: block;
+  }
+
+  .education-item span {
     margin-top: 2px;
+    text-align: left;
   }
 
   .project-title {
@@ -166,13 +219,68 @@ li {
   .project-title span {
     display: block;
     margin-top: 2px;
+    text-align: left;
+  }
+
+  .bottom-section {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}
+
+/* Small Mobile Screens */
+@media (max-width: 480px) {
+  .toolbar {
+    gap: 8px;
+  }
+
+  .toolbar button,
+  .toolbar a {
+    padding: 8px 11px;
+    font-size: 13px;
+  }
+
+  .resume {
+    width: calc(100% - 16px);
+    padding: 20px;
+    margin: 8px auto;
+  }
+
+  .header h1 {
+    font-size: 20px;
+    letter-spacing: 1px;
+  }
+
+  .contact {
+    font-size: 9.5px;
+  }
+
+  h2 {
+    font-size: 12px;
+  }
+
+  p,
+  li {
+    font-size: 10px;
   }
 }
 
 /* Print Optimization */
 @media print {
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  html,
   body {
+    width: 210mm;
+    min-height: 297mm;
     background: #fff;
+  }
+
+  body {
+    margin: 0;
   }
 
   .no-print {
@@ -190,5 +298,12 @@ li {
   a {
     color: #000;
     text-decoration: none;
+  }
+
+  .project,
+  .education-item,
+  .bottom-section > div {
+    break-inside: avoid;
+    page-break-inside: avoid;
   }
 }
