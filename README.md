@@ -6,10 +6,10 @@ projects, certifications, education, and resume as an aspiring Full Stack Develo
 ## 🌐 Live Portfolio
 
 **Portfolio:**  
-YOUR-VERCEL-PORTFOLIO-LINK
+https://jitendra-rajpurohit-portfolio-web.vercel.app
 
 **Resume:**  
-YOUR-VERCEL-PORTFOLIO-LINK/resume.html
+https://jitendra-rajpurohit-portfolio-web.vercel.app/Resume/resume.html
 
 ---
 
@@ -102,13 +102,14 @@ A responsive calculator built using HTML, CSS, and JavaScript.
 https://github.com/Jitendra-razz05/Calculator-miniproject
 
 **Live Demo:**  
-Add your deployed Vercel link here
+https://calculator-miniproject.vercel.app/
 
 ---
 
 ## 🎓 Education
 
 ### Bachelor of Computer Applications (BCA)
+
 **Mohanlal Sukhadia University, Udaipur**
 
 Expected Graduation: **2027**
@@ -118,6 +119,7 @@ Expected Graduation: **2027**
 ## 📜 Certifications
 
 ### AWS Cloud Practitioner Essentials
+
 **AWS Training & Certification**
 
 Completed AWS Cloud Practitioner Essentials training covering fundamental
@@ -128,6 +130,7 @@ AWS Cloud concepts, core services, security, architecture, and pricing.
 ---
 
 ### Free Full Stack Developer Course
+
 **Simplilearn SkillUp**
 
 Successfully completed the Free Full Stack Developer Course, gaining
@@ -148,9 +151,10 @@ Portfolio/
 ├── style.css
 ├── script.js
 │
-├── resume.html
-├── resume.css
-├── resume.js
+├── Resume/
+│   ├── resume.html
+│   ├── resume.css
+│   └── resume.js
 │
 ├── thank-you.html
 │
