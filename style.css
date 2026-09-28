@@ -923,17 +923,21 @@ textarea:focus-visible {
 .project-card {
   display: grid;
 
-  grid-template-columns: 0.95fr 1.05fr;
+  grid-template-columns: 0.9fr 1.1fr;
 
   overflow: hidden;
 
   border: 1px solid var(--line);
-  border-radius: 24px;
+  border-radius: 18px;
+
+  max-width: 1000px;
+  margin: 0 auto;
 
   background: var(--card);
 
   transition: var(--transition);
 }
+
 
 .project-card:hover {
   border-color: var(--line-hover);
@@ -942,15 +946,19 @@ textarea:focus-visible {
     0 25px 80px rgba(0, 0, 0, 0.25);
 }
 
+.projects-section > .project-card + .project-card {
+  margin-top: 22px;
+}
+
 /* Project visual */
 
 .project-visual {
-  min-height: 450px;
+  min-height: 300px;
 
   display: grid;
   place-items: center;
 
-  padding: 45px;
+  padding: 30px;
 
   background:
     radial-gradient(
@@ -962,7 +970,7 @@ textarea:focus-visible {
 }
 
 .project-ui {
-  width: min(390px, 100%);
+  width: min(340px, 100%);
 
   padding: 18px;
 
@@ -1095,7 +1103,7 @@ textarea:focus-visible {
 /* Project information */
 
 .project-info {
-  padding: 48px;
+  padding: 30px;
 
   min-width: 0;
 }
@@ -1110,11 +1118,11 @@ textarea:focus-visible {
 }
 
 .project-info h3 {
-  margin: 12px 0 16px;
+  margin: 10px 0 12px;
 
   font-family: "Space Grotesk", sans-serif;
 
-  font-size: 36px;
+  font-size: 28px;
   font-weight: 700;
 
   line-height: 1.1;
@@ -1131,11 +1139,11 @@ textarea:focus-visible {
 .project-features {
   list-style: none;
 
-  margin: 22px 0;
+  margin: 16px 0;
 }
 
 .project-features li {
-  margin: 10px 0;
+  margin: 7px 0;
 
   color: #d6d8e2;
 
@@ -1154,9 +1162,9 @@ textarea:focus-visible {
   display: flex;
   flex-wrap: wrap;
 
-  gap: 18px;
+  gap: 14px;
 
-  margin-top: 25px;
+  margin-top: 18px;
 }
 
 .project-links a {
@@ -1541,7 +1549,7 @@ footer p {
   }
 
   .project-info {
-    padding: 38px;
+    padding: 28px;
   }
 
   .contact-grid {
@@ -1643,11 +1651,12 @@ footer p {
   }
 
   .project-visual {
-    min-height: 330px;
+    min-height: 240px;
+    padding: 24px;
   }
 
   .project-info {
-    padding: 32px;
+    padding: 24px;
   }
 
   /* Contact */
@@ -1743,9 +1752,9 @@ footer p {
   /* Project */
 
   .project-visual {
-    min-height: 280px;
+    min-height: 220px;
 
-    padding: 22px;
+    padding: 18px;
   }
 
   .project-ui {
@@ -1753,11 +1762,11 @@ footer p {
   }
 
   .project-info {
-    padding: 28px 22px;
+    padding: 24px 20px;
   }
 
   .project-info h3 {
-    font-size: 29px;
+    font-size: 24px;
   }
 
   .project-links {
