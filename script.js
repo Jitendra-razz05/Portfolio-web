@@ -3,50 +3,86 @@ const nav = document.getElementById("navLinks");
 const menuBtn = document.getElementById("menuBtn");
 const year = document.getElementById("year");
 
-// Scroll progress
+
+// SCROLL PROGRESS BAR
 window.addEventListener("scroll", () => {
-  const max = document.documentElement.scrollHeight - window.innerHeight;
+  const max =
+    document.documentElement.scrollHeight - window.innerHeight;
 
   if (progress && max > 0) {
     progress.style.width = `${(window.scrollY / max) * 100}%`;
   }
 });
 
-menuBtn?.addEventListener("click", () => {
-  nav.classList.toggle("open");
 
-  menuBtn.innerHTML = nav.classList.contains("open")
-    ? '<i class="fa-solid fa-xmark"></i>'
-    : '<i class="fa-solid fa-bars"></i>';
+// MOBILE NAVBAR TOGGLE
+menuBtn?.addEventListener("click", () => {
+  if (!nav) return;
+
+  nav.classList.toggle("active");
+
+  const isOpen = nav.classList.contains("active");
+
+  menuBtn.innerHTML = isOpen
+    ? '<i class="fa-solid fa-xmark" aria-hidden="true"></i>'
+    : '<i class="fa-solid fa-bars" aria-hidden="true"></i>';
+
+  menuBtn.setAttribute("aria-expanded", isOpen);
 });
 
-// Close nav when a link is clicked
+// ========================================
+// CLOSE NAVBAR WHEN LINK IS CLICKED
+// ========================================
+
 document.querySelectorAll("#navLinks a").forEach((link) => {
   link.addEventListener("click", () => {
-    nav.classList.remove("open");
+    if (!nav || !menuBtn) return;
+
+    nav.classList.remove("active");
+
+    menuBtn.innerHTML =
+      '<i class="fa-solid fa-bars" aria-hidden="true"></i>';
+
+    menuBtn.setAttribute("aria-expanded", "false");
   });
 });
+
+// ========================================
+// SCROLL REVEAL ANIMATION
+// ========================================
 
 const observer = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.classList.add("visible");
+
         observer.unobserve(entry.target);
       }
     });
   },
-  { threshold: 0.12 }
+  {
+    threshold: 0.12,
+  }
 );
 
 // Reveal elements on scroll
-document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+document.querySelectorAll(".reveal").forEach((el) => {
+  observer.observe(el);
+});
+
+// ========================================
+// DYNAMIC COPYRIGHT YEAR
+// ========================================
 
 if (year) {
   year.textContent = new Date().getFullYear();
 }
 
-// Typing effect
+// ========================================
+// TYPING EFFECT
+// ========================================
+
 const typingText = document.querySelector(".typing-text");
 
 const words = [
@@ -61,6 +97,8 @@ let charIndex = 0;
 let deleting = false;
 
 function typeEffect() {
+  if (!typingText) return;
+
   const currentWord = words[wordIndex];
 
   if (deleting) {
@@ -76,14 +114,18 @@ function typeEffect() {
   if (!deleting && charIndex === currentWord.length) {
     deleting = true;
     speed = 1500;
-  } 
-  else if (deleting && charIndex === 0) {
+  } else if (deleting && charIndex === 0) {
     deleting = false;
+
     wordIndex = (wordIndex + 1) % words.length;
+
     speed = 400;
   }
 
   setTimeout(typeEffect, speed);
 }
 
-typeEffect();
+// Start typing effect only if element exists
+if (typingText) {
+  typeEffect();
+}
