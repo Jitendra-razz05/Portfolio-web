@@ -16,7 +16,7 @@ body {
   background: #e8e8e8;
   color: #222;
   font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.45;
+  line-height: 1.15;
 }
 
 
@@ -70,7 +70,7 @@ body {
 
 .resume {
   width: 210mm;
-  min-height: 250mm;
+  min-height: 230mm;
   margin: 25px auto;
   padding: 15mm 16mm;
   background: white;
@@ -93,7 +93,7 @@ body {
   font-size: 25px;
   font-weight: 700;
   letter-spacing: 1px;
-  margin-bottom: 7px;
+  margin-bottom: 14px;
 }
 
 .contact {
@@ -132,7 +132,7 @@ section h2 {
   letter-spacing: 0.7px;
   color: #111;
   border-bottom: 1.5px solid #333;
-  padding-bottom: 3px;
+  padding-bottom: 2px;
   margin-bottom: 7px;
 }
 
